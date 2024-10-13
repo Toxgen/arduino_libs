@@ -1,5 +1,5 @@
-#ifndef MINE_H
-#define MINE_H
+#ifndef SCREEN_H
+#define SCREEN_H
 
 #include <LiquidCrystal.h>
 #include "Arduino.h"
