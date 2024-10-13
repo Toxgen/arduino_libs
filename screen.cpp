@@ -6,7 +6,7 @@
 int MS = 1000;
 
 // constructor class because it doesnt have default constructor
-first::first(void) : _lcd(12, 11, 10, 6, 7, 8, 9)
+first::first(void) : _lcd(rs, rw, enable, d7, d6, d5, d4)
 {
   // 16 columns, 2 rows
   _lcd.begin(16, 2);
