@@ -4,10 +4,10 @@
 #include <LiquidCrystal.h>
 #include "Arduino.h"
 
-class first
+class screen
 {
     public:
-        first(int, int, int, int, int, int);
+        screen(int, int, int, int, int, int);
         void print_out(char*);
         void print_out_int(int);
     private:
