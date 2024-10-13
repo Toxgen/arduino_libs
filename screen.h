@@ -7,7 +7,7 @@
 class first
 {
     public:
-        first(int, int, int, int, int, int, int);
+        first(int, int, int, int, int, int);
         void print_out(char*);
         void print_out_int(int);
     private:
