@@ -6,10 +6,9 @@
 int MS = 1000;
 
 // constructor class because it doesnt have default constructor
-first::first(int rs, int rw, int enable, int d7, int d6, int d5, int d4)
+first::first(int rs, int rw, int enable, int d7, int d6, int d5, int d4) : _lcd(rs, rw, enable, d7, d6, d5, d4)
 {
   // 16 columns, 2 rows
-  _lcd(rs, rw, enable, d7, d6, d5, d4);
   _lcd.begin(16, 2);
 }
 
