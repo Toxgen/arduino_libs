@@ -36,6 +36,7 @@ void first::print_out(char* input)
   {
     // already has null terminator
     strncpy(_buffer, input + 16, str_length);
+    // double check
     _buffer[16] = '\0';
 
     _lcd.setCursor(0, 1);
@@ -48,5 +49,4 @@ void first::print_out_int(int input)
   char buffer[32];
   snprintf(buffer, "%d", input);
   first::print_out(buffer);
-
 }
