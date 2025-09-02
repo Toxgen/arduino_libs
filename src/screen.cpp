@@ -29,6 +29,7 @@ void Screen::print_out(char* input)
   {
     // already has null terminator
     strncpy(_buffer, input + 16, str_length);
+    _buffer[16] = "\0";
 
     _lcd.setCursor(0, 1);
     _lcd.print(_buffer);

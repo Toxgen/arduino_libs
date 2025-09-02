@@ -7,6 +7,7 @@
 class Screen
 {
     public:
+        // constructor for Screen & constructions _lcd for initalization for _lcd
         Screen(int rs, int enable, int d4, int d5, int d6, int d7) : _lcd(rs, enable, d4, d5, d6, d7) 
         {  _lcd.begin(16, 2); }
         

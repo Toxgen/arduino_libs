@@ -6,17 +6,9 @@
 
 class Sonic
 {
-    struct both
-    {
-        bool a;
-        screen b;
-
-        both(bool foo, const screen& bar) : a(foo), b(bar) {} 
-    };
-
     public:
-        Sonic(int echo, int trig, const screen& lcd);
-        void run(bool flag, int* distance = nullptr);
+        Sonic(int echo_p, int trig_p, const screen& lcd) : _echo(echo_p), _trig(trig_p), _lcd(lcd) {};
+        void run(bool flag);
 
     private:
         long _duration;
