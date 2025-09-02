@@ -4,7 +4,7 @@
 #include "Arduino.h"
 #include "../screen.h"
 
-class sonic
+class Sonic
 {
     struct both
     {
@@ -15,7 +15,7 @@ class sonic
     };
 
     public:
-        sonic(int echo, int trig, const screen& lcd);
+        Sonic(int echo, int trig, const screen& lcd);
         void run(bool flag, int* distance = nullptr);
 
     private:

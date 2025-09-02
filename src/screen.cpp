@@ -5,7 +5,7 @@
 // externs than defines it, no #define
 int MS = 1000;
 
-void screen::print_out(char* input)
+void Screen::print_out(char* input)
 {
   /*
   clear board then print string
@@ -35,7 +35,7 @@ void screen::print_out(char* input)
   }
 }
 
-void screen::print_out_int(int input)
+void Screen::print_out_int(int input)
 {
   char buffer[32];
   sprintf(buffer, "%d", input);

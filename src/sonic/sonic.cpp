@@ -3,7 +3,7 @@
 #include "sonic.h"
 #include "../screen.h"
 
-sonic::sonic(int echo, int trig, const screen& lcd = screen(0, 0, 0, 0, 0, 0)) : _echo(echo), _trig(trig), _lcd{false, lcd} 
+Sonic::Sonic(int echo, int trig, const screen& lcd = screen(0, 0, 0, 0, 0, 0)) : _echo(echo), _trig(trig), _lcd{false, lcd} 
 {
     pinMode(_echo, INPUT);
     pinMode(_trig, OUTPUT);
