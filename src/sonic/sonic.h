@@ -7,7 +7,7 @@
 class Sonic
 {
     public:
-        Sonic(int echo_p, int trig_p, const screen& lcd) : _echo(echo_p), _trig(trig_p), _lcd(lcd) {};
+        Sonic(int echo_p, int trig_p, const Screen& lcd) : _echo(echo_p), _trig(trig_p), _lcd(lcd) {};
         void run(bool flag);
 
     private:
@@ -16,7 +16,7 @@ class Sonic
         int _prev;
         int _trig;
         int _echo;
-        both _lcd;
+        Screen _lcd;
 };
 
 #endif

@@ -3,13 +3,7 @@
 #include "sonic.h"
 #include "../screen.h"
 
-Sonic::Sonic(int echo_p, int trig_p, const screen& lcd = Screen(0, 0, 0, 0, 0, 0))
-{
-    pinMode(_echo, INPUT);
-    pinMode(_trig, OUTPUT);
-}
-
-void sonic::run(bool flag)
+void Sonic::run(bool flag)
 {
     digitalWrite(_trig, LOW);
     delayMicroseconds(2);
@@ -34,7 +28,7 @@ void sonic::run(bool flag)
     if (flag) // checks if flag is true
     {
         delay(150);
-        _lcd.b.print_out_int(_distance);
+        _lcd.print_out_int(_distance);
         Serial.println(_distance);
     }
     else
