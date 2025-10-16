@@ -40,5 +40,5 @@ void Screen::print_out_int(int input)
 {
   char buffer[32];
   sprintf(buffer, "%d", input);
-  screen::print_out(buffer);
+  _lcd::print_out(buffer);
 }
