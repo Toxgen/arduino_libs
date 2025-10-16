@@ -8,7 +8,7 @@ class Screen
 {
     public:
         // constructor for Screen & constructions _lcd for initalization for _lcd
-        // VSS is GND, VCC is 5V, VO is 1k resisetor to GND, A is 1k resistor to 5V, K is GND
+        // VSS is GND, VCC is 5V, RW is GND, VO is 1k resisetor to GND, A is 1k resistor to 5V, K is GND
         Screen(int rs, int enable, int d4, int d5, int d6, int d7) : _lcd(rs, enable, d4, d5, d6, d7) 
         {  _lcd.begin(16, 2); }
         
