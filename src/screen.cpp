@@ -4,7 +4,6 @@
 
 // externs than defines it, no #define
 int MS = 1000;
-#define byte uint8_t
 
 void Screen::print_out(char* input)
 {
@@ -44,6 +43,109 @@ void Screen::print_out_int(int input)
   Screen::print_out(buffer);
 }
 
+void Screen::create_char(uint8_t a, uint8_t b[])
+{
+  _lcd.createChar(a, b);
+}
+
+void Screen::print_out_six_seven(uint8_t frame) 
+{
+  // (0, 0) is top left, (0 column, 0 row)
+  _lcd.clear();
+  switch (frame % 8) {
+    case 0:
+      _lcd.setCursor(7, 0);
+      _lcd.write(byte(5)); // both hands
+
+      _lcd.setCursor(8, 0);
+      _lcd.write(byte(1)); // face
+      _lcd.setCursor(9, 0);
+      _lcd.write(byte(5)); // both hands
+
+      _lcd.setCursor(8, 1);
+      _lcd.write(byte(0)); // feet
+      break;
+    case 1:
+      _lcd.setCursor(7, 0);
+      _lcd.write(byte(6)); // left hand
+      _lcd.setCursor(8, 0);
+      _lcd.write(byte(2)); // face
+      _lcd.setCursor(9, 0);
+      _lcd.write(byte(7)); // right hand
+
+      _lcd.setCursor(8, 1);
+      _lcd.write(byte(0)); // feet
+      break;
+    case 2:
+      _lcd.setCursor(7, 0);
+      _lcd.write(byte(6)); // left hand
+      _lcd.setCursor(8, 0);
+      _lcd.write(byte(3)); // face
+      _lcd.setCursor(9, 0);
+      _lcd.write(byte(8)); // right hand
+
+      _lcd.setCursor(8, 1);
+      _lcd.write(byte(0)); // feet
+      break;
+    case 3:
+      _lcd.setCursor(7, 0);
+      _lcd.write(byte(9)); // left hand
+      _lcd.setCursor(8, 0);
+      _lcd.write(byte(4)); // face
+      _lcd.setCursor(9, 0);
+      _lcd.write(byte(10)); // right hand
+
+      _lcd.setCursor(8, 1);
+      _lcd.write(byte(0)); // feet
+      break;
+    case 4:
+      _lcd.setCursor(7, 0);
+      _lcd.write(byte(11)); // left hand
+      _lcd.setCursor(8, 0);
+      _lcd.write(byte(5)); // face
+      _lcd.setCursor(9, 0);
+      _lcd.write(byte(12)); // right hand
+
+      _lcd.setCursor(8, 1);
+      _lcd.write(byte(0)); // feet
+      break;
+    case 5:
+      _lcd.setCursor(7, 0);
+      _lcd.write(byte(14)); // left hand
+      _lcd.setCursor(8, 0);
+      _lcd.write(byte(4)); // face
+      _lcd.setCursor(9, 0);
+      _lcd.write(byte(13)); // right hand
+
+      _lcd.setCursor(8, 1);
+      _lcd.write(byte(0)); // feet
+      break;
+    case 6:
+      _lcd.setCursor(7, 0);
+      _lcd.write(byte(15)); // left hand
+      _lcd.setCursor(8, 0);
+      _lcd.write(byte(2)); // face
+      _lcd.setCursor(9, 0);
+      _lcd.write(byte(13)); // right hand
+
+      _lcd.setCursor(8, 1);
+      _lcd.write(byte(0)); // feet
+      break;
+    case 7:
+      _lcd.setCursor(7, 0);
+      _lcd.write(byte(5)); // both hands
+      _lcd.setCursor(8, 0);
+      _lcd.write(byte(1)); // face
+      _lcd.setCursor(9, 0);
+      _lcd.write(byte(5)); // both hands
+      
+      _lcd.setCursor(8, 1);
+      _lcd.write(byte(0)); // feet
+      break;
+
+  }
+} 
+
 // screen is 2 by 16
 // each pixel is 5 by 8
 // do 10 fps animation
@@ -52,93 +154,3 @@ void Screen::print_out_int(int input)
 [1] [2] [3] [4] [5] [6] [7] [hand left 8] [face 9] [hand right 10] 
 [1] [2] [3] [4] [5] [6] [7] [8] [lower body 9]
 */
-
-void Screen::print_out_six_seven(uint8_t frame) 
-{
-
-  // (0, 0) is top left, (0 column, 0 row)
-  switch (frame) {
-    case 0:
-      lcd.setCursor(6, 0);
-      lcd.write(byte(5)); // both hands
-      lcd.setCursor(8, 0);
-      lcd.write(byte(1)); // face
-      lcd.setCursor(9, 0);
-      lcd.write(byte(5)); // both hands
-      lcd.setCursor(8, 1);
-      lcd.write(byte(0)); // feet
-      break;
-    case 1:
-      lcd.setCursor(6, 0);
-      lcd.write(byte(6)); // left hand
-      lcd.setCursor(8, 0);
-      lcd.write(byte(2)); // face
-      lcd.setCursor(9, 0);
-      lcd.write(byte(7)); // right hand
-      lcd.setCursor(8, 1);
-      lcd.write(byte(0)); // feet
-      break;
-    case 2:
-      lcd.setCursor(6, 0);
-      lcd.write(byte(6)); // left hand
-      lcd.setCursor(8, 0);
-      lcd.write(byte(3)); // face
-      lcd.setCursor(9, 0);
-      lcd.write(byte(8)); // right hand
-      lcd.setCursor(8, 1);
-      lcd.write(byte(0)); // feet
-      break;
-    case 3:
-      lcd.setCursor(6, 0);
-      lcd.write(byte(9)); // left hand
-      lcd.setCursor(8, 0);
-      lcd.write(byte(4)); // face
-      lcd.setCursor(9, 0);
-      lcd.write(byte(10)); // right hand
-      lcd.setCursor(8, 1);
-      lcd.write(byte(0)); // feet
-      break;
-    case 4:
-      lcd.setCursor(6, 0);
-      lcd.write(byte(11)); // left hand
-      lcd.setCursor(8, 0);
-      lcd.write(byte(5)); // face
-      lcd.setCursor(9, 0);
-      lcd.write(byte(12)); // right hand
-      lcd.setCursor(8, 1);
-      lcd.write(byte(0)); // feet
-      break;
-    case 5:
-      lcd.setCursor(6, 0);
-      lcd.write(byte(14)); // left hand
-      lcd.setCursor(8, 0);
-      lcd.write(byte(4)); // face
-      lcd.setCursor(9, 0);
-      lcd.write(byte(13)); // right hand
-      lcd.setCursor(8, 1);
-      lcd.write(byte(0)); // feet
-      break;
-    case 6:
-      lcd.setCursor(6, 0);
-      lcd.write(byte(15)); // left hand
-      lcd.setCursor(8, 0);
-      lcd.write(byte(2)); // face
-      lcd.setCursor(9, 0);
-      lcd.write(byte(13)); // right hand
-      lcd.setCursor(8, 1);
-      lcd.write(byte(0)); // feet
-      break;
-    case 7:
-      lcd.setCursor(6, 0);
-      lcd.write(byte(5)); // both hands
-      lcd.setCursor(8, 0);
-      lcd.write(byte(1)); // face
-      lcd.setCursor(9, 0);
-      lcd.write(byte(5)); // both hands
-      lcd.setCursor(8, 1);
-      lcd.write(byte(0)); // feet
-      break;
-
-  }
-} 
-
