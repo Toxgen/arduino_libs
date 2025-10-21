@@ -52,29 +52,30 @@ void Screen::print_out_six_seven(uint8_t frame)
 {
   // (0, 0) is top left, (0 column, 0 row)
   _lcd.clear();
+  // display the feet first
+  _lcd.setCursor(8, 1);
+  _lcd.write(byte(0));
+  // figure out where to where and comment it on the arduino
+  // don't forget to pull from the cloud
+
   switch (frame % 8) {
     case 0:
       _lcd.setCursor(7, 0);
+      _lcd.write(byte(5)); 
+      _lcd.setCursor(9, 0);
       _lcd.write(byte(5)); // both hands
 
       _lcd.setCursor(8, 0);
       _lcd.write(byte(1)); // face
-      _lcd.setCursor(9, 0);
-      _lcd.write(byte(5)); // both hands
-
-      _lcd.setCursor(8, 1);
-      _lcd.write(byte(0)); // feet
       break;
     case 1:
       _lcd.setCursor(7, 0);
       _lcd.write(byte(6)); // left hand
-      _lcd.setCursor(8, 0);
-      _lcd.write(byte(2)); // face
       _lcd.setCursor(9, 0);
       _lcd.write(byte(7)); // right hand
 
-      _lcd.setCursor(8, 1);
-      _lcd.write(byte(0)); // feet
+      _lcd.setCursor(8, 0);
+      _lcd.write(byte(1)); // face
       break;
     case 2:
       _lcd.setCursor(7, 0);
@@ -83,9 +84,6 @@ void Screen::print_out_six_seven(uint8_t frame)
       _lcd.write(byte(3)); // face
       _lcd.setCursor(9, 0);
       _lcd.write(byte(8)); // right hand
-
-      _lcd.setCursor(8, 1);
-      _lcd.write(byte(0)); // feet
       break;
     case 3:
       _lcd.setCursor(7, 0);
@@ -94,9 +92,6 @@ void Screen::print_out_six_seven(uint8_t frame)
       _lcd.write(byte(4)); // face
       _lcd.setCursor(9, 0);
       _lcd.write(byte(10)); // right hand
-
-      _lcd.setCursor(8, 1);
-      _lcd.write(byte(0)); // feet
       break;
     case 4:
       _lcd.setCursor(7, 0);
@@ -105,9 +100,6 @@ void Screen::print_out_six_seven(uint8_t frame)
       _lcd.write(byte(5)); // face
       _lcd.setCursor(9, 0);
       _lcd.write(byte(12)); // right hand
-
-      _lcd.setCursor(8, 1);
-      _lcd.write(byte(0)); // feet
       break;
     case 5:
       _lcd.setCursor(7, 0);
@@ -116,9 +108,6 @@ void Screen::print_out_six_seven(uint8_t frame)
       _lcd.write(byte(4)); // face
       _lcd.setCursor(9, 0);
       _lcd.write(byte(13)); // right hand
-
-      _lcd.setCursor(8, 1);
-      _lcd.write(byte(0)); // feet
       break;
     case 6:
       _lcd.setCursor(7, 0);
@@ -127,9 +116,6 @@ void Screen::print_out_six_seven(uint8_t frame)
       _lcd.write(byte(2)); // face
       _lcd.setCursor(9, 0);
       _lcd.write(byte(13)); // right hand
-
-      _lcd.setCursor(8, 1);
-      _lcd.write(byte(0)); // feet
       break;
     case 7:
       _lcd.setCursor(7, 0);
@@ -138,9 +124,6 @@ void Screen::print_out_six_seven(uint8_t frame)
       _lcd.write(byte(1)); // face
       _lcd.setCursor(9, 0);
       _lcd.write(byte(5)); // both hands
-      
-      _lcd.setCursor(8, 1);
-      _lcd.write(byte(0)); // feet
       break;
 
   }
@@ -151,6 +134,6 @@ void Screen::print_out_six_seven(uint8_t frame)
 // do 10 fps animation
 // each fram is 100 ms, take account for how long to display
 /*
-[1] [2] [3] [4] [5] [6] [7] [hand left 8] [face 9] [hand right 10] 
-[1] [2] [3] [4] [5] [6] [7] [8] [lower body 9]
+[1] [2] [3] [4] [5] [6] [7] [hand left 8(7*)] [face 9(8*)] [hand right 10(9*)] 
+[1] [2] [3] [4] [5] [6] [7] [8] [lower body 9(8*)]
 */
