@@ -16,6 +16,8 @@ class Screen
         void print_out_int(int input);
         void print_out_six_seven(uint8_t frame);
         void create_char(uint8_t, uint8_t[]);
+        // maybe instead of making _lcd a private variable, make it public so you can call that instead?
+        // or learn how to inherit from it or smth like that? but wouldnt we need to change mostly everything?
         
     private:
         LiquidCrystal _lcd;
