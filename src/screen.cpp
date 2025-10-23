@@ -39,6 +39,11 @@ void Screen::print_out(char* input)
 void Screen::print_out_int(int input)
 {
   char buffer[32];
+  if (strlen(buffer) > 32)
+  {
+    _lcd.print("uh oh");
+    return;
+  }
   sprintf(buffer, "%d", input);
   Screen::print_out(buffer);
 }
@@ -55,78 +60,76 @@ void Screen::print_out_six_seven(uint8_t frame)
   // display the feet first
   _lcd.setCursor(8, 1);
   _lcd.write(byte(0));
-  // figure out where to where and comment it on the arduino
-  // don't forget to pull from the cloud
 
   switch (frame % 8) {
     case 0:
       _lcd.setCursor(7, 0);
       _lcd.write(byte(5)); 
       _lcd.setCursor(9, 0);
-      _lcd.write(byte(5)); // both hands
+      _lcd.write(byte(6 )); // both hands
 
       _lcd.setCursor(8, 0);
       _lcd.write(byte(1)); // face
       break;
     case 1:
       _lcd.setCursor(7, 0);
-      _lcd.write(byte(7)); // left hand
+      _lcd.write(byte(5)); // left hand
       _lcd.setCursor(9, 0);
-      _lcd.write(byte(5)); // right hand
+      _lcd.write(byte(6)); // right hand
 
       _lcd.setCursor(8, 0);
       _lcd.write(byte(1)); // face
       break;
     case 2:
       _lcd.setCursor(7, 0);
-      _lcd.write(byte(8)); // left hand
+      _lcd.write(byte(5)); // left hand
       _lcd.setCursor(9, 0);
-      _lcd.write(byte(17)); // right hand
+      _lcd.write(byte(6)); // right hand
 
       _lcd.setCursor(8, 0);
       _lcd.write(byte(1)); // face
       break;
     case 3:
       _lcd.setCursor(7, 0);
-      _lcd.write(byte(9)); // left hand
+      _lcd.write(byte(5)); // left hand
       _lcd.setCursor(9, 0);
-      _lcd.write(byte(18)); // right hand
+      _lcd.write(byte(6)); // right hand
 
       _lcd.setCursor(8, 0);
       _lcd.write(byte(2)); // face
       break;
     case 4:
       _lcd.setCursor(7, 0);
-      _lcd.write(byte(10)); // left hand
+      _lcd.write(byte(5)); // left hand
       _lcd.setCursor(9, 0);
-      _lcd.write(byte(11)); // right hand
+      _lcd.write(byte(6)); // right hand
 
       _lcd.setCursor(8, 0);
       _lcd.write(byte(2)); // face
       break;
     case 5:
       _lcd.setCursor(7, 0);
-      _lcd.write(byte(12)); // left hand
+      _lcd.write(byte(5)); // left hand
       _lcd.setCursor(9, 0);
-      _lcd.write(byte(13)); // right hand
+      _lcd.write(byte(6)); // right hand
       
       _lcd.setCursor(8, 0);
       _lcd.write(byte(3)); // face
       break;
     case 6:
       _lcd.setCursor(7, 0);
-      _lcd.write(byte(7)); // left hand
+      _lcd.write(byte(5)); // left hand
       _lcd.setCursor(9, 0);
-      _lcd.write(byte(14)); // right hand
+      _lcd.write(byte(6)); // right hand
 
       _lcd.setCursor(8, 0);
       _lcd.write(byte(4)); // face
       break;
     case 7:
       _lcd.setCursor(7, 0);
-      _lcd.write(byte(15)); // both hands
+      _lcd.write(byte(5)); // both hands
       _lcd.setCursor(9, 0);
-      _lcd.write(byte(16)); // both hands
+      _lcd.write(byte(6)); // both hands
 
       _lcd.setCursor(8, 0);
       _lcd.write(byte(1)); // face
